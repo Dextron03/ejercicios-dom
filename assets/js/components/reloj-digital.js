@@ -1,4 +1,4 @@
-export const actualizarHora = () => {
+const actualizarHora = () => {
     let horaActual = new Date();
     let hora = horaActual.getHours();
     let minuto = horaActual.getMinutes();
@@ -13,7 +13,6 @@ export const imprimirEnDom = () => {
     const $reloj = document.getElementById("reloj");
     let temporizador = setInterval(()=>{},0);
 
-    const audio = new Audio("/assets/media/audio/alarma.mp3");
 
     document.addEventListener("click", e =>{
         if(e.target.matches("#activar-reloj")){
@@ -26,7 +25,13 @@ export const imprimirEnDom = () => {
             clearInterval(temporizador);
             $reloj.innerHTML = "";
         }
+    });  
+}
 
+export const alarma = () => {
+    const audio = new Audio("/assets/media/audio/alarma.mp3");
+
+    document.addEventListener("click", e => {
         if(e.target.matches("#activar-alarma")){
             audio.play()
             .then(()=>{
@@ -42,5 +47,5 @@ export const imprimirEnDom = () => {
             audio.pause();
             audio.load();
         }
-    });  
+    });
 }
