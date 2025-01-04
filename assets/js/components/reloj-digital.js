@@ -1,23 +1,12 @@
-const actualizarHora = () => {
-    let horaActual = new Date();
-    let hora = horaActual.getHours();
-    let minuto = horaActual.getMinutes();
-    let segundos = horaActual.getSeconds().toString();
-
-    const agregarDigito = (num) => String(num).padStart(2, "0");// Asegura que cada número tenga al menos 2 dígitos
-    
-    return `${agregarDigito(hora)}:${agregarDigito(minuto)}:${agregarDigito(segundos)}`
-};
-
 export const imprimirEnDom = () => {
     const $reloj = document.getElementById("reloj");
     let temporizador = setInterval(()=>{},0);
 
-
     document.addEventListener("click", e =>{
         if(e.target.matches("#activar-reloj")){
             temporizador = setInterval(()=>{
-                $reloj.innerHTML = `<p>${actualizarHora()}</p>`
+                let reloj = new Date().toLocaleTimeString()
+                $reloj.innerHTML = `<p>${reloj}</p>`
             }, 1500);
         }
         
