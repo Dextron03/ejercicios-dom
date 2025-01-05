@@ -6,8 +6,9 @@ export const imprimirEnDom = () => {
         if(e.target.matches("#activar-reloj")){
             temporizador = setInterval(()=>{
                 let reloj = new Date().toLocaleTimeString()
-                $reloj.innerHTML = `<p>${reloj}</p>`
-            }, 1500);
+                $reloj.innerHTML = `<h3>${reloj}</h3>`
+            }, 1000);
+
         }
         
         if(e.target.matches("#desactivar-reloj")){
@@ -30,11 +31,14 @@ export const alarma = () => {
                 console.error("Error al reproducir audio: ", error)
             });
             audio.loop = true;
+
+            document.querySelector("#activar-alarma").setAttribute("disabled", true);
         }
 
         if(e.target.matches("#desactivar-alarma")){
             audio.pause();
             audio.load();
+            document.querySelector("#activar-alarma").removeAttribute("disabled");
         }
     });
 }

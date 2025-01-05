@@ -1,5 +1,6 @@
 import {abrirCerrarMenu} from "./components/menu-amburguesa.js"
 import {imprimirEnDom, alarma} from "./components/reloj-digital.js"
+import {precionarTecla, moveBall} from "./components/teclado.js"
 
 const $hamburgerBtn = document.querySelector(".hamburger");
 
@@ -12,4 +13,6 @@ document.addEventListener("click", (e) => {
 abrirCerrarMenu();
 imprimirEnDom();
 alarma();
+precionarTecla();
+moveBall();
 
