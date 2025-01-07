@@ -2,6 +2,8 @@ import {abrirCerrarMenu} from "./components/menu-amburguesa.js"
 import {imprimirEnDom, alarma} from "./components/reloj-digital.js"
 import {precionarTecla, moveBall} from "./components/teclado.js"
 import {countdown} from "./components/cuenta-regresiva.js"
+import {scrollButtom} from "./components/boton-scroll.js"
+import { activarDarkMode } from "./components/dark-mode.js"
 
 const $hamburgerBtn = document.querySelector(".hamburger");
 
@@ -17,4 +19,6 @@ alarma();
 precionarTecla();
 moveBall();
 countdown("2025-07-03T00:00:00", "A TERMINADO LA CUENTA REGRESIVA");
+scrollButtom();
+activarDarkMode()
 
