@@ -17,10 +17,10 @@ export const countdown = (limit, message) => {
             } else {
                 $countdown.innerHTML = `
                     <h3>
-                        Días: ${dias} 
-                        Horas: ${horas} 
-                        Minutos: ${minutos.toString().padStart(2, "0")} 
-                        Segundos: ${segundos.toString().padStart(2, "0")}
+                        ${dias}d 
+                        ${horas}h 
+                        ${minutos.toString().padStart(2, "0")}m 
+                        ${segundos.toString().padStart(2, "0")}s
                     </h3>`;
             }
         }, 1000);

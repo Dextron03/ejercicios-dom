@@ -18,7 +18,7 @@ imprimirEnDom();
 alarma();
 precionarTecla();
 moveBall();
-countdown("2025-07-03T00:00:00", "A TERMINADO LA CUENTA REGRESIVA");
+countdown("2025-01-08T09:00:00", "A TERMINADO LA CUENTA REGRESIVA");
 scrollButtom();
 activarDarkMode()
 
