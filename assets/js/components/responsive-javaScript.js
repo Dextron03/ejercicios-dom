@@ -1,14 +1,20 @@
 export const responsiveMedia = (id, mq, mobileContent, desktopContent) => {
-    let breakPonit = window.matchMedia(mq);
+    const $breakpoint = window.matchMedia(mq);
 
-    const reponsive = (e) => {
-        if(e.matches){
-            document.getElementById(id).innerHTML = desktopContent;
-        }else{
-            document.getElementById(id).innerHTML = mobileContent;
+    const responsive = (e) => {
+        const element = document.getElementById(id);
+        if (!element) return; // Asegura que el elemento existe antes de modificarlo.
+
+        if (e.matches) {
+            element.innerHTML = desktopContent;
+        } else {
+            element.innerHTML = mobileContent;
         }
-    }
+    };
 
-    breakPonit.addListener(reponsive)
-    reponsive(breakPonit)
-}
+    // Escucha los cambios de estado del media query
+    $breakpoint.addEventListener("change", responsive);
+
+    // Ejecuta la función inicialmente para aplicar el contenido adecuado
+    responsive($breakpoint);
+};

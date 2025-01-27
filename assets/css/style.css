@@ -69,6 +69,11 @@ img {
   background-color: var(--second-modal-color);
   transition: transform 0.3s ease;
   transform: translate(0, -100%);
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto; /* Habilitar scroll vertical */
+  overflow-x: hidden; /* Evitar scroll horizontal */
+  padding: 1rem; /* Opcional, para darle espacio al contenido */
 }
 
 .panel.is-active {
@@ -97,9 +102,10 @@ img {
   width: inherit;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
+  gap: 1rem; /* Espaciado entre los enlaces */
 }
 
 .menu a {
@@ -197,4 +203,178 @@ img {
   background-color: #fcf8f8;
   color: #e2d7d7;
   transition: all 0.5s ease-in-out
+}
+
+
+/* **********     Network Status      ********** */
+.online,
+.offline {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadeInOut 3.5s ease forwards;
+}
+
+.online {
+  background-color: #1b5e20;
+}
+
+.offline {
+  background-color: #b71c1c;
+}
+
+#video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+#webcam {
+  width: 100%;
+  max-width: 640px;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+}
+
+#detener-camara {
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--second-color);
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#detener-camara:hover {
+  background-color: var(--second-color);
+  color: var(--main-color);
+}
+
+/* **********     SearchFilters     ********** */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background-color: var(--second-color);
+  color: var(--main-color);
+  transition: all 0.3s ease-out;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card figcaption {
+  padding: 1rem;
+}
+
+.filter {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  order: 1;
+}
+
+
+/* **********     Responsive Slider     ********** */
+
+.slider {
+  position: relative;
+  width: 80%;
+  margin: 1rem auto;
+  /* border: thin solid black; */
+  text-align: center;
+}
+
+.slider-slides {
+  position: relative;
+  height: 400px;
+}
+
+.slider-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+}
+
+.slider-slide img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.slider-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-btns {
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 2rem);
+  display: flex;
+  justify-content: space-between;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.slider a {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: thin solid #000;
+  text-decoration: none;
+  background-color: #fff;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.slider a:hover {
+  color: #4d4d4d;
+}
+
+
+/* Animación para la aparición y desaparición */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
 }
