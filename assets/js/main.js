@@ -13,6 +13,8 @@ import { getGeolocation } from "./components/deteccion-geolocalizacion.js"
 import { searchFilters } from "./components/filtros-busqueda.js"
 import { draw } from "./components/sorteo.js"
 import { slider } from "./components/slider-responsive.js"
+import { scrollSpy } from "./components/scroll_espia.js"
+import { videoInteligencia } from "./components/video-inteligente.js"
 
 const $hamburgerBtn = document.querySelector(".hamburger");
 
@@ -56,5 +58,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   getGeolocation();
   draw();
   slider();
+  scrollSpy();
+  videoInteligencia();
 });
 

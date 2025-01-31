@@ -65,7 +65,7 @@ img {
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; /* Asegura que ocupa toda la altura de la pantalla */
   background-color: var(--second-modal-color);
   transition: transform 0.3s ease;
   transform: translate(0, -100%);
@@ -73,7 +73,8 @@ img {
   visibility: hidden;
   overflow-y: auto; /* Habilitar scroll vertical */
   overflow-x: hidden; /* Evitar scroll horizontal */
-  padding: 1rem; /* Opcional, para darle espacio al contenido */
+  padding: 1rem; /* Espaciado interno opcional */
+  max-height: calc(100vh - 4rem); /* Evita que el menú crezca fuera del área visible */
 }
 
 .panel.is-active {
@@ -378,3 +379,63 @@ img {
     transform: translate(-50%, -20%);
   }
 }
+
+/* ********** ScrollSpy ********** */
+
+@media screen and  (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 4rem auto;
+    grid-template-areas:
+      "header header"
+      "main panel";
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .panel {
+    grid-area: panel;
+    align-self: start;
+    position: sticky;
+    top: 4rem;
+    justify-content: flex-start;
+    background-color: var(--second-color);
+    transform: translate(0, 0);
+    opacity: 1;
+    visibility: visible;
+    overflow-y: auto;
+  }
+
+  .panel-btn {
+    display: none;
+  }
+
+  .menu {
+    justify-content: start;
+    text-align: right;
+  }
+
+  .menu a {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .menu a:hover,
+  .menu a.active {
+    color: var(--second-color);
+    background-color: var(--main-color);
+  }
+
+  .scroll-top-btn {
+    right: initial;
+    left: calc(4.25rem + 1vw);
+  }
+}
+
