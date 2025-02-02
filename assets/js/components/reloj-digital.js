@@ -19,7 +19,7 @@ export const imprimirEnDom = () => {
 }
 
 export const alarma = () => {
-    const audio = new Audio("../../media/audio/alarma.mp3");
+    const audio = new Audio("./assets/media/audio/alarma.mp3");
 
     document.addEventListener("click", e => {
         if(e.target.matches("#activar-alarma")){
