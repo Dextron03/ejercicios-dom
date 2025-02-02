@@ -15,6 +15,8 @@ import { draw } from "./components/sorteo.js"
 import { slider } from "./components/slider-responsive.js"
 import { scrollSpy } from "./components/scroll_espia.js"
 import { videoInteligencia } from "./components/video-inteligente.js"
+import { contactFormValidations } from "./components/validaciones-formulario.js"
+import { narratePhrase } from "./components/narrador.js"
 
 const $hamburgerBtn = document.querySelector(".hamburger");
 
@@ -60,5 +62,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   slider();
   scrollSpy();
   videoInteligencia();
+  contactFormValidations();
+  narratePhrase();
 });
 

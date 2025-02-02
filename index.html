@@ -36,6 +36,8 @@
       <a href="#seccion11" data-scroll-spy>Sorteo Digita</a>
       <a href="#seccion12" data-scroll-spy>Responsive Slider</a>
       <a href="#seccion13" data-scroll-spy>Video Inteligente</a>
+      <a href="#seccion14" data-scroll-spy>Validación de Formularios</a>
+      <a href="#seccion15" data-scroll-spy> Narrador (Lector de Voz) </a>
     </nav>
   </aside>
 
@@ -98,7 +100,6 @@
 
     <section class="section" data-scroll-spy id="seccion7">
       <h2>Deteccion de Red</h2>
-      
     </section>
 
     <section class="section" data-scroll-spy id="seccion8">
@@ -190,34 +191,43 @@
     <section class="section" id="seccion13" data-scroll-spy>
       <h2>Video Inteligente</h2>
       <video src="assets/media/video/istockphoto-2102392628-640_adpp_is.mp4" muted controls loop data-smart-video></video>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <video src="assets/media/video/istockphoto-2102392628-640_adpp_is.mp4" muted controls loop data-smart-video></video>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="section" id="seccion14" data-scroll-spy>
+      <h2>Validaciones de Formulario</h2>
+      <form class="contact-form">
+        <legend>Envíanos tus comentarios</legend>
+        
+        <input type="text" name="name" placeholder="Escribe tu nombre"
+          title="Nombre sólo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+        
+        <input type="email" name="email" placeholder="Escribe tu email" title="Email incorrecto"
+          pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9\-]+(\.[a-z0-9\-]+)*(\.[a-z]{2,15})$" required>
+  
+        <input type="text" name="subject" placeholder="Asunto a tratar" title="El Asunto es requerido" required>
+        
+        <textarea name="comments" rows="5" placeholder="Escribe tus comentarios"
+          title="Tu comentario no debe exceder los 255 caracteres" data-pattern="^.{1,255}$" required></textarea>
+          <input type="submit" value="Enviar">
+      </form>
+    </section>
+
+    <section id="seccion15" class="section" data-scroll-spy>
+      <h2>Narrador</h2>
+      <select id="speech-select">
+        <option value="">--- Elige una Voz ---</option>
+      </select>
+      <br><br>
+      <textarea id="speech-text" placeholder="Ingresa texto para leerlo..." cols="50" rows="5"></textarea>
+      <br><br>
+      <button id="speech-btn">Leer Texto</button>
     </section>
 
   </main>
-
-  <section class="section" id="seccion14">
-    
-  </section>
 
   <button type="button" id="scroll-top-btn" class="scroll-top-btn hidden"><i id="scroll-top-btn" class="bi bi-caret-up-fill"></i></button>
   <button type="button" id="dark-theme-btn" class="dark-theme-btn"><i id="dark-theme-btn" class="bi bi-moon-stars-fill"></i></button>
